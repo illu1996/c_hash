@@ -1,11 +1,10 @@
-﻿using System.Net.Sockets;
-
-namespace DataType_03
+﻿namespace DataType_03
 {
     internal class Program
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("----------데이터 정수 타입----------");
             sbyte a = -10;
             sbyte max_a = sbyte.MaxValue;
             sbyte min_a = sbyte.MinValue;
@@ -50,7 +49,7 @@ namespace DataType_03
 
             char i = 'a';
 
-            Console.WriteLine($"i = {i}");
+            Console.WriteLine($"char = {i}");
             
             nint j = nint.MaxValue;
             nuint k = nuint.MaxValue;
@@ -58,6 +57,61 @@ namespace DataType_03
             nuint m = nuint.MinValue;
 
             Console.WriteLine($"nint Max = {j}, MIn = {j} // nuint Max= {k}, Min = {m}");
+            Console.WriteLine("----------구분선----------");
+
+            Console.WriteLine("----------2진수와 10진수----------");
+
+            byte o = 240; //10진수 리터럴
+            byte o1 = 0b1111_0000; //2진수 리터럴
+            byte o2 = 0xF0; //16진수 리터럴
+            uint o3 = 0x1234_abcd; //16진수 리터럴
+            Console.WriteLine($"10진수 : {o}");
+            Console.WriteLine($"2진수 : {o1}");
+            Console.WriteLine($"16진수 : {o2}");
+            Console.WriteLine($"16진수 : {o3}");
+            Console.WriteLine("----------구분선----------");
+
+            Console.WriteLine("----------float와 double----------");
+            float f1 = 3.1415_9265_3589_7932_3846f;
+            float f_max = float.MaxValue;
+            float f_min = float.MinValue;
+            Console.WriteLine($"float max = {f_max}, min = {f_min}, val = {f1}");
+
+            double db1 = 3.1415_9265_3589_7932_3846;
+            double db_max = double.MaxValue;
+            double db_min = double.MinValue;
+            Console.WriteLine($"double max = {db_max}, min = {db_min}, val = {db1}");
+
+            decimal dm1 = 3.1415_9265_3589_7932_3846m;
+            Console.WriteLine($"float : {f1}\ndouble : {db1}\ndemical : {dm1}");
+            Console.WriteLine("----------구분선----------");
+
+            Console.WriteLine("----------char & string----------");
+
+            char c1 = 'a';
+            string s1 = "ab";
+            Console.WriteLine($"char = {c1} ,string = {s1}");
+            Console.WriteLine("----------구분선----------");
+
+            Console.WriteLine("----------boolean----------");
+            bool suc = true;
+            bool fail = false;
+            Console.WriteLine($"{suc}");
+            Console.WriteLine($"{fail}");
+            Console.WriteLine("----------구분선----------");
+
+            Console.WriteLine("----------Object----------");
+            Object ob1 = 1;
+            Object ob2 = "object2";
+            Object ob3 = true;
+            Object ob4 = 3.12316124634673325264367m;
+            Console.WriteLine(ob1);
+            Console.WriteLine(ob2);
+            Console.WriteLine(ob3);
+            Console.WriteLine(ob4);
+            Console.WriteLine("----------구분선----------");
+
+
         }
     }
 }
