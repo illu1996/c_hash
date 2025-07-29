@@ -268,7 +268,7 @@ namespace _07_Class
         }
         struct ACSetting
         {
-            public double cr; public double cr2;
+            public double cr; public double cr2; 
 
             public readonly double GetF()
             {
