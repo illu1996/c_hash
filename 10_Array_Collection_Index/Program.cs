@@ -54,9 +54,9 @@ namespace _10_Array_Collection_Index
             int[] ints1 = ints[0..1];       //0번부터 1번 전까지 복사
             int[] ints2 = ints[1..7];       //1번부터 7번 전까지 복사
 
-            // 2차원 배열
-            int[,] ints3 = new int[2, 3];
-            int[,,] array2 = new int[2, 4, 5];
+            // 다차원 배열
+            int[,] ints3 = new int[2, 3];       //2차원
+            int[,,] ints4 = new int[2, 4, 5];   //3차원
         }
     }
 }
