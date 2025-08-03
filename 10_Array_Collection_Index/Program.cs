@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace _10_Array_Collection_Index
 {
@@ -57,6 +58,47 @@ namespace _10_Array_Collection_Index
             // 다차원 배열
             int[,] ints3 = new int[2, 3];       //2차원
             int[,,] ints4 = new int[2, 4, 5];   //3차원
+
+            // 가변 배열
+            int[][] jagged = new int[3][];
+            jagged[0] = new int[5] { 1, 2, 3, 4, 5 };
+            jagged[1] = new int[] { 1, 2, 3 };
+            jagged[2] = new int[] { 100, 200 };
+
+            int[][] jagged2 = new int[2][]
+            {
+                new int[] { 1, 2 },
+                new int[] { 100, 200,300 }
+            };
+
+            //ArrayList
+            ArrayList lst = new ArrayList();
+            lst.Add(1);
+            lst.Add(2);
+            lst.Add(3);
+
+            lst.RemoveAt(1);
+            lst.Insert(1, 25);
+
+            //Queue
+            Queue queue = new Queue();
+            queue.Enqueue(1);
+            queue.Enqueue(2);
+            queue.Enqueue(3);
+            queue.Dequeue(); //1이 먼저 나옵니다.
+
+            //Stack
+            Stack stack = new Stack();
+            stack.Push(1);
+            stack.Push(2);
+            stack.Push(3);
+            stack.Pop();        //3이 꺼내짐
+            stack.Pop();        //2가 꺼내짐
+
+            //Hashtable
+            Hashtable hata = new Hashtable();
+            hata["하나"] = "one";
+            hata["둘"] = "two";
         }
     }
 }

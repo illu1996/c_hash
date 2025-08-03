@@ -157,3 +157,144 @@ int[,,] ints4 = new int[2, 4, 5];   //3차원
 ```
 
 용량[2,3]은 2행 3열, 즉 가로로 2줄 세로로 3줄을 말합니다.
+
+## 6. 가변베열
+
+`가변 배열`이란 길이가 변할 수 있는 배열을 말합니다.  
+2차원 배열 선언자인 `[,]` 와는 조금 다르게 `[][]`로 선언합니다.
+
+```csharp
+// 가변 배열
+int[][] jagged = new int[3][];
+jagged[0] = new int[5] { 1, 2, 3, 4, 5 };
+jagged[1] = new int[] { 1, 2, 3 };
+jagged[2] = new int[] { 100, 200 };
+
+int[][] jagged2 = new int[2][]
+{
+    new int[] { 1, 2 },
+    new int[] { 100, 200,300 }
+};
+```
+
+## 7. 컬렉션
+
+`컬렉션`이란 같은 성격을 띄고 있는 데이터의 모음을 담는 자료구조를 말합니다. C# 에서 모든컬렉션들은 `ICollection인터페이스`를 상속하고 있습니다.
+
+```csharp
+public abstract class Array: ICloneable, IList, ICollection, IEnumerabe
+```
+
+이를 제외하고도 **`ArrayList`**, **`Queue`**, **`Stack`**, **`Hashtable`** 등의 자료구조에서 자주 등장하는 아이들이 Collection 그룹을 이루고 있습니다.
+
+#### ArrayList
+
+Array 인 배열과 가장 닮은 컬렉션으로, 배열과 달리 가변으로 길이가 조절되며 메서드를 통해 사용합니다.  
+ArrayList는 Object 형식의 매개변수를 받고 있어 모든 형식의 데이터가 들어갑니다.
+
+다만, 주의할 것은 정수를 넣으면 Object 형식으로 박싱과 언박싱을 진행하여, 성능이 낮음에 주의하셔야 합니다.
+
+```csharp
+using System.Collections;
+
+namespace _10_Array_Collection_Index
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //ArrayList
+            ArrayList lst = new ArrayList();
+            lst.Add(1);     //1추가
+            lst.Add(2);
+            lst.Add(3);
+
+            lst.RemoveAt(1);        //인덱스 1번값제거
+            lst.Insert(1, 25);      //인덱스 1번에 25삽입
+        }
+    }
+}
+```
+
+#### Queue
+
+`Queue` 라는 대기열이라는 뜻을 가지고 있습니다. Queue 는 선입 선출의 개념을 가지고 있습니다.
+먼저 들어가서 기다리는 사람이 먼저 밖으로 나간다를 의미합니다.  
+넣어줌은 `Enqueue`, 빼줌은 `Dequeue`
+
+```csharp
+using System.Collections;
+
+namespace _10_Array_Collection_Index
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //Queue
+            Queue queue = new Queue();
+            queue.Enqueue(1);
+            queue.Enqueue(2);
+            queue.Enqueue(3);
+            queue.Dequeue(); //1이 먼저 나옵니다.
+        }
+    }
+}
+```
+
+#### Stack
+
+`Stack`은 `Queue`와 다르게 선입 후출의 개념을 가지고 있습니다. 배에 자동차를 싣고, 다른 섬으로 가는데 내가 가장먼저 차를 싣고 도착하니, 꼴찌로 나와서 3시간 기다리는 경험은  
+으악!!!! 생각만 해도 지칩니다.  
+넣어줌은 `Push`, 빼줌은 `Pop` 을 이용합니다.
+
+```csharp
+using System.Collections;
+
+namespace _10_Array_Collection_Index
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //Stack
+            Stack stack = new Stack();
+            stack.Push(1);
+            stack.Push(2);
+            stack.Push(3);
+            stack.Pop();        //3이 꺼내짐
+            stack.Pop();        //2가 꺼내짐
+        }
+    }
+}
+```
+
+#### Hashtable
+
+`Hashtable`은 키와 값이 한 쌍으로 이루어진 데이트를 다룰 때, 사용합니다.  
+이게 진짜 웃긴게.... 각 프로그래밍 언어마다 명명을 다르게 하는 게 웃깁니다.  
+파이썬 같은 경우는 딕셔너리, 자바 같은 경우는 해쉬맵 등등..... 똑같은거면서 다르게 불러서 후...
+
+~~혹시 읽으시면서 제가 틀린 지식을 가지고 있으면 바로 댓글로 지적해주세요~~
+
+원래는 매번 인덱스를 알고 인덱스로 접근해야 했는데, 이는 키값만 알면 빠르게 접근가능합니다.
+
+```csharp
+using System.Collections;
+
+namespace _10_Array_Collection_Index
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //Hashtable
+            Hashtable hata = new Hashtable();
+            hata["하나"] = "one";
+            hata["둘"] = "two";
+        }
+    }
+}
+```
+
+이처럼 사용하여, 키값을 통해서 다시 접근할 수 있습니다. 여기서 주의해야할 점은 쌍따옴표냐 따옴표냐에 따라 컴파일러가 읽지 못하니 잘 주의하셔야 합니다.
